@@ -24,4 +24,4 @@ export const Green = {
     children: "Buy Now!",
     variant: "green",
   },
-};
+};    
