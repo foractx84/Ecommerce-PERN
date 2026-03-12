@@ -5,8 +5,9 @@ export default {
   component: Input,
 };
 
-export const Default = () => <Input />;
-
-export const WithLabel = () => <Input label="Username" />;
-
-export const WithError = () => <Input label="Email" error="Invalid email address" />;
+export const Search = {
+    args: {
+        placeholder: "What are you looking for?",
+        icon: "search",
+    },
+};

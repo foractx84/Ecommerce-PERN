@@ -1,3 +1,5 @@
+import { SendHorizontal, Search } from "lucide-react";
+
 function Input({
   label,
   required = false,
@@ -28,6 +30,11 @@ function Input({
       "w-full bg-transparent px-4 py-3 font-['Poppins'] text-base text-[#FAFAFA] placeholder:text-[#FAFAFA]/40 focus:outline-none",
   };
 
+  const icons = {
+    search: <Search className="h-5 w-5 text-black/40" />,
+    send: <SendHorizontal className="h-5 w-5 text-black/40" />,
+  };
+
   return (
     <div className={`w-full ${className}`.trim()}>
       {label && (
@@ -44,7 +51,7 @@ function Input({
           className={`${fieldVariants[variant] ?? fieldVariants.filled} ${inputClassName}`.trim()}
           {...props}
         />
-        {icon && <span className="pr-4 flex items-center">{icon}</span>}
+        {icon && icons[icon]}
       </div>
     </div>
   );
