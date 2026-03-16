@@ -1,9 +1,11 @@
 import Button from './components/ui/Button'
 import CountdownItem from './components/ui/CountdownItem'
+import TopPromoBar from './sections/TopPromoBar'
+import Header from './sections/Header'
 
 function App() {
   return (
-    <div className="p-10">
+    <div>
       <h1 className="text-4xl text-red-500 font-bold">
         Tailwind works
       </h1>
@@ -17,6 +19,9 @@ function App() {
         seconds={30}
         variant="default"
       />
+
+      <TopPromoBar />
+      <Header />
     </div>
   )
 }
