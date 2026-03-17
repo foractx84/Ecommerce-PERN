@@ -2,7 +2,7 @@ import { ChevronDown } from "lucide-react";
 
 function TopPromoBar() {
   return (
-    <section className="bg-black text-white min-w-[1000px] flex relative">
+    <section className="bg-black text-white flex relative w-full">
       <div className="mx-auto flex h-12 items-center justify-between px-4">
         <div className="flex mx-auto items-center gap-2">
           <p className="font-['Poppins'] text-xs font-normal leading-[18px]">
