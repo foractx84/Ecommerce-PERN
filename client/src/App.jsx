@@ -1,10 +1,13 @@
-
-import './App.css'
+import TopPromoBar from './sections/TopPromoBar'
+import Header from './sections/Header'
 
 function App() {
   return (
-      <h1>Hello World</h1>  
-    )
+    <div>
+      <TopPromoBar />
+      <Header />
+    </div>
+  )
 }
 
-export default App;
+export default App
