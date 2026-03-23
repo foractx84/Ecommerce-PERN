@@ -17,4 +17,4 @@ function Badge({ children, variant = "discount", className = "", ...props }) {
   );
 }
 
-export default Badge;
+export default Badge;0

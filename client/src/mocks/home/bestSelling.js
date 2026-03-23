@@ -1,0 +1,48 @@
+const bestSelling = [
+  {
+    id: 1,
+    title: 'The north coat',
+    image: '/images/products/coat.png',
+    price: 260,
+    oldPrice: 360,
+    rating: 5,
+    reviewCount: 65,
+    showAddToCart: false,
+    colors: [],
+  },
+  {
+    id: 2,
+    title: 'Gucci duffle bag',
+    image: '/images/products/bag.png',
+    price: 960,
+    oldPrice: 1160,
+    rating: 4,
+    reviewCount: 65,
+    showAddToCart: false,
+    colors: [],
+  },
+  {
+    id: 3,
+    title: 'RGB liquid CPU Cooler',
+    image: '/images/products/cooler.png',
+    price: 160,
+    oldPrice: 170,
+    rating: 4,
+    reviewCount: 65,
+    showAddToCart: false,
+    colors: [],
+  },
+  {
+    id: 4,
+    title: 'Small BookSelf',
+    image: '/images/products/bookshelf.png',
+    price: 360,
+    oldPrice: null,
+    rating: 5,
+    reviewCount: 65,
+    showAddToCart: false,
+    colors: [],
+  },
+];
+
+export default bestSelling;
