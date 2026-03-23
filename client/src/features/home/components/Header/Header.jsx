@@ -1,14 +1,14 @@
 import React from "react";
-import Input from "../../components/ui/Input";
+import Input from "../../../../components/ui/Input";
 import { Heart, ShoppingCart, Search } from "lucide-react";
 
 const Header = () => {
   return (
-    <header className="bg-amber-50 p-4 shadow-sm w-full">
-      <div className="max-w-7xl mx-auto flex items-center justify-between w-full">
-        <div className="text-xl font-bold">Exclusive</div>
+    <header className="p-4 px-[135px] shadow-sm w-full">
+      <div className=" mx-auto flex items-center justify-between w-full">
+        <div className="text-xl font-bold text-black">Exclusive</div>
 
-        <nav className="hidden md:flex space-x-6">
+        <nav className="hidden md:flex space-x-6 text-black">
           <a href="#" className="hover:underline">Home</a>
           <a href="#" className="hover:underline">Contact</a>
           <a href="#" className="hover:underline">About</a>
@@ -35,6 +35,7 @@ const Header = () => {
           <ShoppingCart className="text-gray-700 cursor-pointer" size={20} />
         </div>
       </div>
+      <div className="mt-4 border-b border-black/10"></div>
     </header>
   );
 };
