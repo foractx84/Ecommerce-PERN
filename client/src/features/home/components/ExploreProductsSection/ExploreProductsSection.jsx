@@ -6,7 +6,7 @@ import Button from '../../../../components/ui/Button/Button';
 function ExploreProductsSection() {
   return (
     <section className="py-8">
-      <div className="mx-auto w-full  px-4 sm:px-6 lg:px-8">
+      <div>
         <SectionHeader
             eyebrow="Our Products"
             title="Explore Our Products"

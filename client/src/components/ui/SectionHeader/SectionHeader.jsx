@@ -7,6 +7,8 @@ function SectionHeader({
   button,
   arrows,
   countdownItem,
+  onPrev,
+  onNext,
 }) {
   return (
     <div className="mb-8 flex items-end justify-between w-full">
@@ -42,8 +44,8 @@ function SectionHeader({
         )}
         {arrows && (
             <div className="flex items-center gap-1">
-                <Button icon="left" mode="icon" variant="primary" size="md" />
-                <Button icon="right" mode="icon" variant="primary" size="md" />
+                <Button icon="left" mode="icon" variant="primary" size="md" onClick={onPrev}/>
+                <Button icon="right" mode="icon" variant="primary" size="md" onClick={onNext}/>
             </div>
         )}
       </div>

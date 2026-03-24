@@ -4,7 +4,7 @@ import newArrival from '../../../../mocks/home/newArrival';
 function NewArrivalSection() {
   return (
     <section className="py-8">
-      <div className="mx-auto w-full  px-4 sm:px-6 lg:px-8">
+      <div>
         <SectionHeader
           eyebrow="Featured"
           title="New Arrival"
@@ -31,7 +31,7 @@ function NewArrivalSection() {
 
               <button
                 type="button"
-                className="border-b border-white pb-1 text-sm font-medium text-white"
+                className="point border-b border-white pb-1 text-sm font-medium text-white"
               >
                 Shop Now
               </button>

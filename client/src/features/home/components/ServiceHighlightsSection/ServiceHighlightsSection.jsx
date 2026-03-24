@@ -21,7 +21,7 @@ function ServiceItem({ icon: Icon, title, description }) {
 function ServiceHighlightsSection() {
   return (
     <section className="py-20">
-      <div className="mx-auto w-full  px-4 sm:px-6 lg:px-8">
+      <div>
         <div className="mx-auto grid max-w-5xl gap-10 md:grid-cols-3">
           {services.map((service) => (
             <ServiceItem

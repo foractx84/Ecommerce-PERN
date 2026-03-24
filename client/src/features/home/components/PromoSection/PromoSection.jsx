@@ -5,7 +5,7 @@ import Button from '../../../../components/ui/Button/Button';
 function PromoSection() {
   return (
     <section className="py-8">
-      <div className="mx-auto w-full  px-4 sm:px-6 lg:px-8">
+      <div>
         <div className="overflow-hidden rounded bg-black px-8 py-10 text-white md:px-12 lg:px-14 lg:py-8 ">
           <div className="grid items-center gap-10 lg:grid-cols-2">
             <div className="max-w-md">

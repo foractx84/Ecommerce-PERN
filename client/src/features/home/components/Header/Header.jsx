@@ -4,11 +4,10 @@ import { Heart, ShoppingCart, Search } from "lucide-react";
 
 const Header = () => {
   return (
-    <header className="p-4 px-[135px] shadow-sm w-full">
+    <header className="pt-[40px] px-[135px] shadow-sm w-full border-b border-black/10">
       <div className=" mx-auto flex items-center justify-between w-full">
-        <div className="text-xl font-bold text-black">Exclusive</div>
-
-        <nav className="hidden md:flex space-x-6 text-black">
+        <div className="text-2xl font-bold text-black">Exclusive</div>
+        <nav className="hidden md:flex space-x-12 text-black">
           <a href="#" className="hover:underline">Home</a>
           <a href="#" className="hover:underline">Contact</a>
           <a href="#" className="hover:underline">About</a>
@@ -19,7 +18,7 @@ const Header = () => {
           <div className="relative">
             <Input
               variant="outline"
-              placeholder="Search products..."
+              placeholder="What are you looking for?"
               icon={<Search size={16} />}
               className="w-48 md:w-64"
             />
@@ -35,7 +34,7 @@ const Header = () => {
           <ShoppingCart className="text-gray-700 cursor-pointer" size={20} />
         </div>
       </div>
-      <div className="mt-4 border-b border-black/10"></div>
+      <div className="mt-4"></div>
     </header>
   );
 };
