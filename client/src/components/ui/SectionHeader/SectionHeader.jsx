@@ -12,27 +12,36 @@ function SectionHeader({
 }) {
   return (
     <div className="mb-8 flex items-end justify-between w-full">
-      <div className="flex ">
-        <div>
-          {eyebrow && (
-            <div className="mb-4 flex items-center gap-3">
-              <span className="h-8 w-4 rounded bg-red-500"></span>
-              <span className="text-sm font-semibold text-red-500">
-                {eyebrow}
-              </span>
+      <div className="flex gap-[87px]">
+        <div className="flex items-end">
+          <div> 
+            {eyebrow && (
+              <div className="mb-4 flex items-center gap-3">
+                <span className="h-8 w-4 rounded bg-red-500"></span>
+                <span className="text-sm font-semibold text-red-500">
+                  {eyebrow}
+                </span>
+              </div>
+            )}
+
+            {title && (
+              <h2 className="text-3xl font-semibold tracking-tight text-black">
+                {title}
+              </h2>
+            )}
+          </div>
+        </div>
+          {countdownItem && (
+            <div className="flex items-end">
+              <CountdownItem
+                days={'03'}
+                hours={23}
+                minutes={19}
+                seconds={56}
+              />
             </div>
           )}
-
-          {title && (
-            <h2 className="text-3xl font-semibold tracking-tight text-black">
-              {title}
-            </h2>
-          )}
-        </div>
       </div>
-        {countdownItem && (
-          <CountdownItem days={'03'} hours={23} minutes={19} seconds={56} />
-        )}
 
       <div className="flex items-center gap-3">
         {button && (

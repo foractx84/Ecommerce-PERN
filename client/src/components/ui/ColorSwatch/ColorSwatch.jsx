@@ -1,23 +1,17 @@
-function ColorSwatch({
-  color,
-  selected = false,
-  className = "",
-  ...props
-}) {
+function ColorSwatch({ color, selected, onClick }) {
   return (
     <button
       type="button"
-      className={`inline-flex items-center justify-center rounded-full ${
-        selected ? "size-[20px] border border-black bg-transparent" : "w-5 h-5"
-      } ${className}`.trim()}
-      aria-pressed={selected}
-      {...props}
-    >
-      <span
-        className={`rounded-full ${selected ? "size-[12px]" : "w-5 h-5"}`}
-        style={{ backgroundColor: color }}
-      />
-    </button>
+      onClick={onClick}
+      className={`w-6 h-6 rounded-full transition-all cursor-pointer ${
+        selected
+          ? 'border-2 ring-2 ring-offset-2 ring-black'
+          : 'border border-gray-300 hover:border-gray-400'
+      }`}
+      style={{ backgroundColor: color.code }}
+      aria-label={`Select color ${color.code}`}
+      title={color.code}
+    />
   );
 }
 

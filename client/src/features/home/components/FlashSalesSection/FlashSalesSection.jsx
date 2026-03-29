@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import SectionHeader from '../../../../components/ui/SectionHeader';
 import flashSales from '../../../../mocks/home/flashSales';
@@ -8,10 +8,32 @@ import Button from '../../../../components/ui/Button/Button';
 
 function FlashSalesSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [visibleCards, setVisibleCards] = useState(4);
+
+  useEffect(() => {
+  const updateVisibleCards = () => {
+    const width = window.innerWidth;
+
+    if (width >= 1760) {
+      setVisibleCards(5);
+    } else if (width >= 1440) {
+      setVisibleCards(4);
+    } else if (width >= 1160) {
+      setVisibleCards(3);
+    } else {
+      setVisibleCards(1); // fallback for small screens
+    }
+  };
+
+  updateVisibleCards(); // run once
+
+  window.addEventListener('resize', updateVisibleCards);
+
+  return () => window.removeEventListener('resize', updateVisibleCards);
+}, []);
   
   const cardWidth = 270;
   const gap = 30;
-  const visibleCards = 5;
   const maxIndex = Math.max(flashSales.length - visibleCards, 0);
   const translateX = currentIndex * (cardWidth + gap);
   
