@@ -1,0 +1,47 @@
+const recommendationItems = [
+  {
+    id: 1,
+    title: 'ASUS FHD Gaming Laptop',
+    image: '/images/products/laptop.png',
+    price: 960,
+    oldPrice: 1160,
+    discountPercent: 35,
+    rating: 5,
+    reviewCount: 65,
+    showEyeIcon: true,
+  },
+  {
+    id: 2,
+    title: 'IPS LCD Gaming Monitor',
+    image: '/images/products/monitor.png',
+    price: 1160,
+    oldPrice: null,
+    discountPercent: null,
+    rating: 5,
+    reviewCount: 65,
+    showEyeIcon: true,
+  },
+  {
+    id: 3,
+    title: 'HAVIT HV-G92 Gamepad',
+    image: '/images/products/gamepad_red.png',
+    price: 560,
+    oldPrice: null,
+    badgeText: 'NEW',
+    rating: 5,
+    reviewCount: 65,
+    showEyeIcon: true,
+  },
+  {
+    id: 4,
+    title: 'AK-900 Wired Keyboard',
+    image: '/images/products/keyboard.png',
+    price: 200,
+    oldPrice: null,
+    rating: 5,
+    reviewCount: 65,
+    showEyeIcon: true,
+  },
+];
+
+export default recommendationItems;

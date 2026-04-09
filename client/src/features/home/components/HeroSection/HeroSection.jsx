@@ -5,6 +5,8 @@ import { ChevronRight } from 'lucide-react';
 
 function HeroSection() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [activeCategory, setActiveCategory] = useState(null);
+
   const translateX = activeIndex * 100;
 
   useEffect(() => {
@@ -13,18 +15,26 @@ function HeroSection() {
     }, 3000);
 
     return () => clearInterval(interval);
-  }, [activeIndex]);
+  }, []);
 
   return (
     <section className="pb-16">
       <div className="grid w-full gap-6 lg:grid-cols-[220px_minmax(0,1fr)]">
-        <div className="border-r border-black/10 pt-10 text-black">
+        <div
+          className="relative border-r border-black/10 pt-10 text-black"
+          onMouseLeave={() => setActiveCategory(null)}
+        >
           <aside className="pr-4">
             <ul className="space-y-4">
               {heroCategories.map((item) => (
                 <li
                   key={item.id}
-                  className="flex items-center justify-between text-[15px] text-black"
+                  onMouseEnter={() =>
+                    item.subCategories.length > 0
+                      ? setActiveCategory(item)
+                      : setActiveCategory(null)
+                  }
+                  className="flex cursor-pointer items-center justify-between text-[15px] text-black"
                 >
                   <span>{item.label}</span>
                   {item.hasArrow ? <ChevronRight size={18} /> : null}
@@ -32,6 +42,25 @@ function HeroSection() {
               ))}
             </ul>
           </aside>
+
+          {activeCategory && activeCategory.subCategories.length > 0 && (
+            <div className="absolute left-full top-0 z-20 ml-2 min-w-[220px] bg-white p-4 shadow-lg">
+              <h3 className="mb-3 text-base font-semibold">
+                {activeCategory.label}
+              </h3>
+
+              <ul className="space-y-3">
+                {activeCategory.subCategories.map((subItem, index) => (
+                  <li
+                    key={index}
+                    className="cursor-pointer text-sm text-black hover:text-red-500"
+                  >
+                    {subItem}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
         </div>
 
         <div className="relative mt-10 max-h-[344px] overflow-hidden bg-black">
@@ -41,7 +70,7 @@ function HeroSection() {
           >
             {heroSlides.map((slide) => (
               <div key={slide.id} className="w-full shrink-0">
-                <div className="grid items-center lg:grid-cols-2 px-[64px] text-white">
+                <div className="grid items-center px-[64px] text-white lg:grid-cols-2">
                   <div className="max-w-sm">
                     <div className="flex items-center gap-3">
                       <img

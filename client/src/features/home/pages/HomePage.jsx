@@ -6,12 +6,11 @@ import PromoSection from '../components/PromoSection/PromoSection';
 import ExploreProductsSection from '../components/ExploreProductsSection/ExploreProductsSection';
 import NewArrivalSection from '../components/NewArrivalSection/NewArrivalSection';
 import ServiceHighlightsSection from '../components/ServiceHighlightsSection/ServiceHighlightsSection';
-import Footer from '../components/Footer/Footer';
 
 function HomePage() {
   return (
     <div>
-      <div className="bg-white px-[135px]">
+      <div className="bg-white">
         <HeroSection />
         <FlashSalesSection />
         <CategoriesSection />
@@ -21,7 +20,6 @@ function HomePage() {
         <NewArrivalSection />
         <ServiceHighlightsSection />
       </div>
-        <Footer />
     </div>
   );
 }

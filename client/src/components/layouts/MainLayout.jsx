@@ -1,15 +1,17 @@
-import TopPromoBar from './TopPromoBar';
-import Navbar from './Navbar';
-import Footer from './Footer';
+import TopPromoBar from "./TopPromoBar";
+import Header from "./Header";
+import Footer from "./Footer";
+import BottomBar from "./BottomBar";
 
 function MainLayout({ children }) {
   return (
-    <div className="min-h-screen bg-[#f5e8d8] text-black">
+    <>
       <TopPromoBar />
-      <Navbar />
-      <main>{children}</main>
+      <Header />
+      <main className="px-[135px]">{children}</main>
       <Footer />
-    </div>
+      <BottomBar />
+    </>
   );
 }
 
