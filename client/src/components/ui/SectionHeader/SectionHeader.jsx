@@ -1,5 +1,5 @@
 import Button from "../Button/Button";
-import CountdownItem from "../CountdownItem";
+import  CountdownTimer from "../CountdownItem/CountdownTimer";
 
 function SectionHeader({
   eyebrow,
@@ -33,12 +33,7 @@ function SectionHeader({
         </div>
           {countdownItem && (
             <div className="flex items-end">
-              <CountdownItem
-                days={'03'}
-                hours={23}
-                minutes={19}
-                seconds={56}
-              />
+              <CountdownTimer targetDate="2026-04-31T23:59:59" variant="default" />
             </div>
           )}
       </div>

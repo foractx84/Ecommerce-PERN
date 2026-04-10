@@ -1,5 +1,5 @@
 import promoBanner from '../../../../mocks/home/promoBanner';
-import CountdownItem from '../../../../components/ui/CountdownItem';
+import CountdownTimer from '../../../../components/ui/CountdownItem/CountdownTimer';
 import Button from '../../../../components/ui/Button/Button';
 
 function PromoSection() {
@@ -17,7 +17,7 @@ function PromoSection() {
                 {promoBanner.title}
               </h2>
 
-              <CountdownItem days={'05'} hours={'23'} minutes={'59'} seconds={'35'} variant='circle' />
+              <CountdownTimer targetDate="2026-04-31T23:59:59" variant="circle" />
 
               <Button mode='text' children={"Buy Now!"} variant='green' className='mt-[40px]'/>
             </div>

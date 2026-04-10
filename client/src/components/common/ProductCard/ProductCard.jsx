@@ -24,6 +24,12 @@ function ProductCard({ product }) {
           </div>
         )}
 
+        {product.discount && (
+          <div className="absolute left-3 top-3 z-10">
+            <Badge variant="danger">-{product.discount}%</Badge>
+          </div>
+        )}
+
         {/* Heart & Eye Icons */}
         <div className="absolute right-3 top-3 flex flex-col gap-2 z-10">
           <Button
@@ -66,7 +72,7 @@ function ProductCard({ product }) {
           {product.title}
         </h3>
 
-        <Price price={product.price} oldPrice={product.oldPrice} />
+        <Price price={product.price} oldPrice={product.oldPrice} discount={product.discount} />
 
         <RatingStars
           rating={product.rating}

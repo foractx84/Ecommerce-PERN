@@ -16,7 +16,7 @@ const bestSelling = [
     image: '/images/products/bag.png',
     price: 960,
     oldPrice: 1160,
-    rating: 4,
+    rating: 4.5,
     reviewCount: 65,
     showAddToCart: false,
     colors: [],
