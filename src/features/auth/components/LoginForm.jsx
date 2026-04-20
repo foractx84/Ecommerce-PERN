@@ -1,13 +1,17 @@
 import Button from '../../../components/ui/Button/Button';
 import AuthFormHeader from './AuthFormHeader';
 import { loginUser } from '../api/authApi';
+import { useAuth } from '../../../contexts/AuthContext';
+import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
-
 
 function LoginForm() {
   const inputClass =
     'w-full border-b border-black/30 pb-3 text-base text-black outline-none placeholder:text-black/40';
 
+  const { login } = useAuth();
+  const navigate = useNavigate();
+  
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -18,7 +22,6 @@ function LoginForm() {
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-
     setFormData((prev) => ({
       ...prev,
       [name]: value,
@@ -33,6 +36,12 @@ function LoginForm() {
     try {
       const data = await loginUser(formData);
       console.log('Login success:', data);
+
+      // Store token and user in auth context
+      login(data.data.accessToken, data.data.user);
+
+      // Redirect to home
+      navigate('/');
     } catch (err) {
       setError(err.response?.data?.message || 'Login failed');
     } finally {
@@ -48,28 +57,41 @@ function LoginForm() {
       />
 
       <form onSubmit={handleSubmit} className="mt-12 space-y-10">
+        {error && <div className="text-red-500 text-sm">{error}</div>}
+        
         <input
-          type="text"
-          name='email'
+          type="email"
+          name="email"
           placeholder="Email or Phone Number"
           className={inputClass}
           value={formData.email}
           onChange={handleChange}
+          required
         />
 
-        <input type="password" name='password' placeholder="Password" className={inputClass} value={formData.password}
-        onChange={handleChange}/>
+        <input
+          type="password"
+          name="password"
+          placeholder="Password"
+          className={inputClass}
+          value={formData.password}
+          onChange={handleChange}
+          required
+        />
 
         <div className="flex items-center justify-between gap-4">
           <Button
-            type="submit" disabled={isLoading}
+            type="submit"
+            disabled={isLoading}
             className="rounded-[4px] bg-red-500 px-12 py-4 text-base font-medium text-white transition hover:bg-red-600"
           >
             {isLoading ? 'Logging in...' : 'Log In'}
           </Button>
 
           <Button
-            type="button" mode='text' onlyText={true}
+            type="button"
+            mode="text"
+            onlyText={true}
             className="text-base text-red-500 transition hover:underline"
           >
             Forget Password?

@@ -2,10 +2,12 @@ import { useState } from 'react';
 import AuthFormHeader from './AuthFormHeader';
 import { useNavigate } from 'react-router-dom';
 import { registerUser } from '../api/authApi';
+import { useAuth } from '../../../contexts/AuthContext';
 import Button from '../../../components/ui/Button/Button';
 
 function SignUpForm() {
   const navigate = useNavigate();
+  const { login } = useAuth();
 
   const inputClass =
     'w-full border-b border-black/30 pb-3 text-base text-black outline-none placeholder:text-black/40';
@@ -36,6 +38,12 @@ function SignUpForm() {
     try {
       const data = await registerUser(formData);
       console.log('Register success:', data);
+
+      // Auto-login after signup
+      login(data.data.accessToken, data.data.user);
+
+      // Redirect to home
+      navigate('/');
     } catch (err) {
       setError(err.response?.data?.message || 'Registration failed');
     } finally {
@@ -58,15 +66,17 @@ function SignUpForm() {
           className={inputClass}
           value={formData.name}
           onChange={handleChange}
+          required
         />
 
         <input
-          type="text"
+          type="email"
           name="email"
           placeholder="Email or Phone Number"
           className={inputClass}
           value={formData.email}
           onChange={handleChange}
+          required
         />
 
         <input
@@ -76,6 +86,7 @@ function SignUpForm() {
           className={inputClass}
           value={formData.password}
           onChange={handleChange}
+          required
         />
 
         {error ? (

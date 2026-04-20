@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import {
   User,
   Package,
@@ -12,13 +12,14 @@ import ROUTES from '../../../constants/routes';
 function AccountDropdown() {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
+  const navigate = useNavigate();
 
   const accountMenuItems = [
     { id: 1, label: 'Manage My Account', icon: User, href: ROUTES.ACCOUNT },
     { id: 2, label: 'My Order', icon: Package, href: '/orders' },
     { id: 3, label: 'My Cancellations', icon: XCircle, href: '/cancellations' },
     { id: 4, label: 'My Reviews', icon: Star, href: '/reviews' },
-    { id: 5, label: 'Logout', icon: LogOut, href: '/logout' },
+    { id: 5, label: 'Logout', icon: LogOut, href: '/logout', isLogout: true },
   ];
 
   useEffect(() => {
@@ -34,6 +35,11 @@ function AccountDropdown() {
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, []);
+
+  const handleLogout = (item) => {
+    setIsOpen(false);
+    navigate(item.href);
+  };
 
   return (
     <div ref={dropdownRef} className="relative">
@@ -52,6 +58,21 @@ function AccountDropdown() {
           <ul className="space-y-4">
             {accountMenuItems.map((item) => {
               const Icon = item.icon;
+
+              if (item.isLogout) {
+                return (
+                  <li key={item.id}>
+                    <button
+                      type="button"
+                      onClick={() => handleLogout(item)}
+                      className="flex w-full items-center gap-4 text-sm text-white transition hover:text-red-300"
+                    >
+                      <Icon size={24} />
+                      <span>{item.label}</span>
+                    </button>
+                  </li>
+                );
+              }
 
               return (
                 <li key={item.id}>

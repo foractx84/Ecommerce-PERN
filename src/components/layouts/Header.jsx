@@ -1,24 +1,18 @@
 import Input from "../ui/Input";
-import { Search} from "lucide-react";
+import { Search } from "lucide-react";
 import { useLocation } from "react-router-dom";
 import { NavLink } from 'react-router-dom';
 import ROUTES from "../../constants/routes";
 import Button from "../ui/Button/Button";
 import AccountDropdown from "../common/AccountDropdown";
-import { useEffect, useState } from 'react';
+import { useAuth } from "../../contexts/AuthContext";
 
 const Header = () => {
   const location = useLocation();
+  const { user, isLoading } = useAuth(); // ✅ Use AuthContext instead of localStorage
 
   const hideIcons =
     location.pathname === "/signup" || location.pathname === "/login";
-
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  useEffect(() => {
-    const token = localStorage.getItem('accessToken');
-    setIsLoggedIn(!!token);
-  }, []);
 
   return (
     <header className="pt-[40px] px-[135px] shadow-sm w-full border-b border-black/10">
@@ -74,7 +68,8 @@ const Header = () => {
                 </span>
               </NavLink>
               
-              {isLoggedIn ? <AccountDropdown /> : null}
+              {/* ✅ Check AuthContext instead of localStorage */}
+              {!isLoading && user ? <AccountDropdown /> : null}
             </>
           )}
         </div>
